@@ -5,23 +5,17 @@ namespace GildedRose
 {
     internal class GildedRose
     {
-        private readonly IList<Item> Items;
         public const string AGED_BRIE = "Aged Brie";
         public const string SULFURAS = "Sulfuras, Hand of Ragnaros";
         public const string BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
 
-        public GildedRose(IList<Item> items)
+        public static void UpdateQuality(IList<Item> items)
         {
-            Items = items;
-        }
-
-        public void UpdateQuality()
-        {
-            foreach (var item in Items)
+            foreach (var item in items)
                 UpdateQuality(item);
         }
 
-        private void UpdateQuality(Item item)
+        private static void UpdateQuality(Item item)
         {
             switch (item.Name)
             {

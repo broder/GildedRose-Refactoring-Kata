@@ -9,8 +9,7 @@ namespace GildedRose
         private static IList<Item> SetupTest(string name, int sellIn, int quality)
         {
             IList<Item> items = new List<Item> {new Item {Name = name, SellIn = sellIn, Quality = quality}};
-            var app = new GildedRose(items);
-            app.UpdateQuality();
+            GildedRose.UpdateQuality(items);
             return items;
         }
 
@@ -73,14 +72,14 @@ namespace GildedRose
         [Test]
         public void SulfurasQualityConstant()
         {
-            var items = SetupTest(GildedRose.SULFURAS, 1, 1);
-            Assert.AreEqual(1, items[0].Quality);
+            var items = SetupTest(GildedRose.SULFURAS, 1, 80);
+            Assert.AreEqual(80, items[0].Quality);
         }
 
         [Test]
         public void SulfurasSellInConstant()
         {
-            var items = SetupTest(GildedRose.SULFURAS, 1, 1);
+            var items = SetupTest(GildedRose.SULFURAS, 1, 80);
             Assert.AreEqual(1, items[0].SellIn);
         }
 
