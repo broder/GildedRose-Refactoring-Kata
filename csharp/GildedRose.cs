@@ -8,6 +8,7 @@ namespace GildedRose
         public const string AGED_BRIE = "Aged Brie";
         public const string SULFURAS = "Sulfuras, Hand of Ragnaros";
         public const string BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
+        public const string CONJURED = "Conjured";
 
         public static void UpdateQuality(IList<Item> items)
         {
@@ -35,6 +36,13 @@ namespace GildedRose
                         item.Quality += 2;
                     else
                         item.Quality++;
+                    break;
+
+                case CONJURED:
+                    if (item.SellIn <= 0)
+                        item.Quality -= 4;
+                    else
+                        item.Quality -= 2;
                     break;
 
                 default:

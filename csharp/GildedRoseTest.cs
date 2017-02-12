@@ -110,5 +110,26 @@ namespace GildedRose
             var items = SetupTest(GildedRose.BACKSTAGE_PASS, 0, 1);
             Assert.AreEqual(0, items[0].Quality);
         }
+
+        [Test]
+        public void ConjuredQualityDecreasesTwiceAsFase()
+        {
+            var items = SetupTest(GildedRose.CONJURED, 1, 2);
+            Assert.AreEqual(0, items[0].Quality);
+        }
+
+        [Test]
+        public void ConjuredQQualityDecreasesFourTimesAsFastIfSellInZero()
+        {
+            var items = SetupTest(GildedRose.CONJURED, 0, 4);
+            Assert.AreEqual(0, items[0].Quality);
+        }
+
+        [Test]
+        public void ConjuredQQualityDecreasesFourTimesAsFastIfSellInNegative()
+        {
+            var items = SetupTest(GildedRose.CONJURED, -1, 4);
+            Assert.AreEqual(0, items[0].Quality);
+        }
     }
 }
